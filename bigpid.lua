@@ -1,14 +1,14 @@
 function onTick(gimbal, FR_SpeedController, FL_SpeedController, BR_SpeedController, BL_SpeedController)
     local controllers = {
-        FR_SpeedController, 
-        FL_SpeedController, 
-        BR_SpeedController, 
-        BL_SpeedController
+        FR = FR_SpeedController, 
+        FL = FL_SpeedController, 
+        BR = BR_SpeedController, 
+        BL = BL_SpeedController
     }
 
-    for i, controllerName in pairs(controllers) do
+    for positionName, controllerName in pairs(controllers) do
         local controller = peripheral.wrap(controllerName)
-        print(string.format("%s: %d", controllerName, controller.getTargetSpeed()))
+        print(string.format("%s, %s: %d", positionName, controllerName, controller.getTargetSpeed()))
     end
 end
 
